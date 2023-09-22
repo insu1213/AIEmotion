@@ -98,9 +98,9 @@ fun HomeScreen(
             }
 
             Text(
-                text = "negative: ${confidenceState.negative}" +
-                    "\nneutral: ${confidenceState.neutral}" +
-                    "\npositive: ${confidenceState.positive}",
+                text = "부정적: ${confidenceState.negative}" +
+                    "\n중립적: ${confidenceState.neutral}" +
+                    "\n긍정적: ${confidenceState.positive}",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold, modifier = Modifier
                     .padding(10.dp)

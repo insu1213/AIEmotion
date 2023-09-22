@@ -2,6 +2,7 @@ package naver.next.aiemotion
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,9 +21,9 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Graph(
-    modifier: Modifier = Modifier,
+    //modifier: Modifier = Modifier,
     yPoints: List<Float> = listOf(
-        199f, 52f, 193f, 290f, 150f, 445f
+        199f, 52f, 193f, 290f, 150f, 445f, 100f
     ),
     graphColor: Color = colorResource(R.color.teal_700)
 ) {
@@ -33,21 +34,22 @@ fun Graph(
             .fillMaxSize()
             .padding(all = 16.dp)
     ){
-
         Canvas(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
         ) {
-            drawRect(
-                color = Color.Black,
-                topLeft = Offset.Zero,
-                size = Size(
-                    width = size.width,
-                    height = size.height
-                ),
-                style = Stroke()
-            )
+//            drawRect(
+//                color = Color.Black,
+//                topLeft = Offset.Zero,
+//                size = Size(
+//                    width = size.width,
+//                    height = size.height
+//                ),
+//                style = Stroke(width = 5f)
+//            )
+
+
 
             val spacePerHour = (size.width - spacing) / yPoints.size
 
@@ -74,13 +76,13 @@ fun Graph(
                         val conY2 = yPoints[i]
 
 
-                        cubicTo(
-                            x1 = conX1,
-                            y1 = conY1,
-                            x2 = conX2,
-                            y2 = conY2,
-                            x3 = currentX,
-                            y3 = yPoints[i]
+                        lineTo(
+//                            x1 = conX1,
+//                            y1 = conY1,
+//                            x2 = conX2,
+//                            y2 = conY2,
+                            x = currentX,
+                            y = yPoints[i]
                         )
                     }
 
